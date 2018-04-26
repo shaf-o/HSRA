@@ -1,0 +1,16 @@
+mat-card {
+    display:flex;
+    flex-direction: column;
+    mat-card-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        p {
+            font-size: 1rem;
+        }
+    }
+    mat-card-content {
+        height: 67vh;
+    }
+
+}

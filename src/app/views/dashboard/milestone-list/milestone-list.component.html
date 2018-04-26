@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-content fxLayout>
+        <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoaded"></mat-progress-bar> -->
+      <div class="example-container mat-elevation-z2" fxFlex="100%">
+        <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+          <mat-form-field fxFlex="65%">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <button mat-raised-button fxFlex="20%" color="primary" (click)="openDialog()">Add New Milestone</button>
+        </div>
+      <mat-table #table [dataSource]="dataSource">
+        <!-- <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container> -->
+        <ng-container matColumnDef="level">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Display Sequence</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.level}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Milestone Code </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Milestone Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="process.name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Process Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.process.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="editMilestone(element)">Edit</button>
+            <button mat-button color="warn" (click)="deleteMilestone(element)">Delete</button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #paginator [length]="recordCount" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

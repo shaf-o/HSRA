@@ -1,0 +1,25 @@
+<div class="file-url-dialog">
+  <h2 mat-dialog-title>View / Upload Details</h2>
+  <mat-dialog-content>
+    <h4>Conformance Details:</h4>
+    <p><em>&quot;Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus.&quot;</em></p>
+    <hr>
+    <!-- Link / file icon field -->
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+    <div class="link-field" *ngIf="!isFileUploaded">
+      <mat-icon>attach_file</mat-icon>
+      <input type="text" placeholder="Enter URL Evidence link"/>
+    </div>
+    <div class="upload-file-field" *ngIf="isFileUploaded">
+      <app-file-upload-button filename="Select file to upload" (fileUpload)="fileUploadHandler($event)" (deleteUpload)="deleteUploadHandler($event)"></app-file-upload-button>
+    </div>
+    <!-- Enter URL or Upload File Buttons -->
+    <div class="action-items">
+       <mat-checkbox [(ngModel)]="isFileUploaded">Upload File</mat-checkbox> 
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-raised-button color="primary" [disabled]="isConfirmDisabled">CONFIRM</button>
+    <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+  </mat-dialog-actions>
+</div>

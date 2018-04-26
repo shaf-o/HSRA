@@ -1,0 +1,27 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.philips-font {
+  position: fixed;
+  top: 0;
+}
+
+.header-custom {
+  .mat-toolbar-row {
+    .mat-select {
+      background: white;
+      padding: 0% 0.5%;
+      border-radius: 2px;
+      font-size: 13px;
+    }
+  }
+}

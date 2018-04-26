@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ heading }}</h2>
+<mat-dialog-content>
+  <form >
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="45%">
+            <input matInput placeholder="Enter Process Code" [(ngModel)]="processObj.code" name="processCode" [formControl]="textCodeFormControl">
+            <mat-error *ngIf="textCodeFormControl.hasError('required')">
+              Process Code <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Enter Process Name" [(ngModel)]="processObj.name" name="processName" [formControl]="textNameFormControl" >
+        <mat-error *ngIf="textNameFormControl.hasError('required')">
+          Process Name <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="stretch">
+        <mat-form-field fxFlex="45%">
+            <mat-select placeholder="Select Process Type" name="processtype" [(ngModel)]="processTypeObj" (change)="selectedProcessType(processTypeObj)">
+                <mat-option *ngFor="let processtype of processTypeList" [value]="processtype" >
+                  {{ processtype.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+
+    </div>
+  </form>  
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button [disabled]="!textCodeFormControl.valid || !textNameFormControl.valid" mat-raised-button color="primary" (click)="onCreateConfirm(processObj)">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

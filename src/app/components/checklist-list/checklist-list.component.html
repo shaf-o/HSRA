@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-content>
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoaded"></mat-progress-bar>
+      <div class="example-container mat-elevation-z2">
+        <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+          <mat-form-field fxFlex="65%">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <button mat-raised-button fxFlex="20%" color="primary" (click)="openDialog()">Add New Checklist Item</button>
+        </div>
+        <mat-table #table [dataSource]="dataSource">
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Checklist Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="filename">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Template Name </mat-header-cell>
+            <mat-cell fxLayout="row" fxLayoutAlign="space-between center" *matCellDef="let element"> <a [href]="element.filename" download>{{element.filename}}</a> 
+              <button *ngIf="element.filename!=='NA'" title="Download Template" mat-icon-button (click)="downloadTemplate(element.filename)" color="primary">
+                  <mat-icon>file_download</mat-icon>                    
+              </button>
+            </mat-cell>
+          </ng-container>                  
+          <!-- ACTIONS -->
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  
+                  <button mat-button (click)="editChecklist(element)" color="primary">Edit</button>
+                  <button mat-button (click)="deleteChecklist(element)" color="warn">Delete</button>
+                </mat-cell>
+              </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator [length]="recordCount" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

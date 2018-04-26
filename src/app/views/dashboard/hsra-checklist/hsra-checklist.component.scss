@@ -1,0 +1,21 @@
+.cdk-column-position.mat-column-position {
+    flex: 0 0 50px;
+}
+
+.cdk-column-requirement.mat-column-requirement {
+    flex: 0 0 60%;
+    flex-wrap: wrap;
+}
+
+.cdk-column-url.mat-column-url {
+    flex: 0 0 10%;
+}
+.cdk-column-conformance.mat-column-conformance {
+    flex: 0 0 20%;
+    // width: 200px;
+    margin-right:1%;
+}
+
+.detailText {
+    color: darkblue; 
+}

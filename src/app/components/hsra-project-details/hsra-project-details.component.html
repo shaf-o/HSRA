@@ -1,0 +1,34 @@
+<!-- Re-usable component showing dropdown options for BU, Project, Release, Milestones -->
+<div class="hsra-project-screen">
+  <mat-card >      
+    <mat-card-content >
+      <div class="hierarchy-options">
+        <mat-form-field>
+          <mat-select [(ngModel)]="buModel" placeholder="Select Business Unit" name="buModel" [disabled]="isBuDisabled" (change)="onBuChangeHandler(buModel)">
+            <mat-option *ngFor="let bu of businessUnitList" [value]="bu">{{bu.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select [(ngModel)]="projectModel" placeholder="Select Project/Service" name="projectModel" [disabled]="isProjectDisabled" (change)="onProjectChangeHandler(projectModel)">
+            <mat-option *ngFor="let project of projectDetailList" [value]="project">{{project.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select [(ngModel)]="releaseModel" placeholder="Select Release Version" name="releaseModel" [disabled]="isReleaseDisabled" (change)="onReleaseChangeHandler(releaseModel)">
+            <mat-option *ngFor="let release of releaseVersionList" [value]="release">{{release.name}}</mat-option>
+          </mat-select>
+          <p class="process-type" *ngIf="isVersionSelected">
+            <span matToolTip="Tooltip!">{{processTypeInformation}}</span>
+          </p>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(ngModel)]="milestoneModel" placeholder="Select Gate/Milestone" name="milestoneModel" (change)="onMilesStoneChangeHandler(milestoneModel)" [disabled]="isMilestoneDisabled">
+              <mat-option *ngFor="let milestone of milestoneList" [value]="milestone">{{milestone.name}}</mat-option>
+            </mat-select>
+            <p *ngIf="isMileStoneUpcoming" class="upcoming-label">Upcoming Milestone</p>
+          </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<!-- end:Re-usable component showing dropdown options for BU, Project, Release, Milestones -->

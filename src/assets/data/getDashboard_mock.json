@@ -1,0 +1,71 @@
+[{
+        "id": 1,
+        "project_name": "HIAT",
+        "business_unit": "EIS",
+        "release": 2.0,
+        "status": "Not started"
+    },
+    {
+        "id": 2,
+        "project_name": "HIAT",
+        "business_unit": "HTS SDC",
+        "release": 1.0,
+        "status": "Submitted"
+    },
+    {
+        "id": 3,
+        "project_name": "NWO",
+        "business_unit": "HTS SDC",
+        "release": 2.0,
+        "status": "Submitted"
+    },
+    {
+        "id": 4,
+        "project_name": "HSRA",
+        "business_unit": "CAO",
+        "release": 0.1,
+        "status": "Not started"
+    },
+    {
+        "id": 5,
+        "project_name": "PhilipsRTC",
+        "business_unit": "CAO",
+        "release": 0.10,
+        "status": "Not started"
+    },
+    {
+        "id": 6,
+        "project_name": "WebRTC",
+        "business_unit": "SDC",
+        "release": 8.34,
+        "status": "Not started"
+    },
+    {
+        "id": 7,
+        "project_name": "Platform Harmonization",
+        "business_unit": "CAO",
+        "release": 3.0,
+        "status": "Submitted"
+    },
+    {
+        "id": 8,
+        "project_name": "NWO",
+        "business_unit": "HSDP",
+        "release": 6.9,
+        "status": "In Progress"
+    },
+    {
+        "id": 9,
+        "project_name": "WebRTC",
+        "business_unit": "EIS",
+        "release": 5.9,
+        "status": "In Progress"
+    },
+    {
+        "id": 10,
+        "project_name": "WebRTC",
+        "business_unit": "SDC",
+        "release": 6.0,
+        "status": "In Progress"
+    }
+]

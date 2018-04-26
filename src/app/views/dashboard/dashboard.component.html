@@ -1,0 +1,92 @@
+<mat-toolbar class="mat-elevation-z6 header-custom" color="primary">
+  <mat-toolbar-row fxLayout>
+    <span>
+      <img src="assets/img/philips-logo.png" height="30px" width="25px" style="vertical-align:bottom; margin-right:10px;"> Philips HSRA</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button fxFlex="3%">
+      <mat-icon class="example-icon">notifications</mat-icon>
+    </button>
+    <!-- <mat-select [(value)]='selectedRole' fxFlex="12%">
+      <mat-option value="CAO Admin">CAO Admin</mat-option>
+      <mat-option value="Architect">Architect</mat-option>
+      <mat-option value="BU Owner">BU Owner</mat-option>
+    </mat-select> -->
+    <mat-select name="role" [(ngModel)]="selectedRole" (change)="switchRole(selectedRole)" fxFlex="12%">
+      <mat-option *ngFor="let role of roleList" [value]="role">
+        {{ role.name }}
+      </mat-option>
+    </mat-select>
+
+    <!-- <span>{{selectedRole}}</span> -->
+    <button mat-button [matMenuTriggerFor]="menu">{{userName}}</button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <!-- <button mat-menu-item>
+        <mat-icon class="example-icon">settings</mat-icon>Admin Settings</button> -->
+      <button mat-menu-item (click)="logout()">
+        <mat-icon class="example-icon">power_settings_new</mat-icon>Logout</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-tab-group class="mat-elevation-z5">
+
+  <mat-tab label="Processes" *ngIf="selectedRole.name === 'CAO Admin'">
+    <app-process-list></app-process-list>
+  </mat-tab>
+
+  <mat-tab label="Gate/Milestones" *ngIf="selectedRole.name === 'CAO Admin'">
+    <app-milestone-list></app-milestone-list>
+  </mat-tab>
+
+  <mat-tab label="Conformance Checklist" *ngIf="selectedRole.name === 'CAO Admin'">
+    <app-checklist-list></app-checklist-list>
+  </mat-tab>
+
+  <mat-tab label="Checklist Mapping" *ngIf="selectedRole.name === 'CAO Admin'">
+    <app-checklist-detail-list></app-checklist-detail-list>
+  </mat-tab>
+
+  <mat-tab label="Conformance Overview" *ngIf="selectedRole.name === 'CAO Admin'">
+    <app-assessment-result></app-assessment-result>
+  </mat-tab>
+
+
+</mat-tab-group>
+<mat-tab-group class="mat-elevation-z5">
+<!-- <mat-tab label="Manage Products" *ngIf="selectedRole.name === 'BU Owner'">
+  <app-product-list></app-product-list>
+</mat-tab> -->
+<mat-tab label="Manage Projects" *ngIf="selectedRole.name === 'BU Owner'">
+  <app-project-list></app-project-list>
+</mat-tab>
+<mat-tab label="User Management" *ngIf="selectedRole.name === 'BU Owner'">
+  <app-user-management></app-user-management>
+</mat-tab>
+
+
+</mat-tab-group>
+
+
+<mat-tab-group class="mat-elevation-z5" [(selectedIndex)]= "architectScreenIndex">
+  <!-- app-conformance-dashboard -->
+  <mat-tab label="Overview Dashboard" *ngIf="selectedRole.name === 'Architect'" (click)="onTabChange()">
+    <app-overview-dashboard></app-overview-dashboard>
+  </mat-tab>
+  
+  <mat-tab label="HSRA Checklist" *ngIf="selectedRole.name === 'Architect'">
+    <app-hsra-checklist></app-hsra-checklist>
+  </mat-tab>
+  
+  <mat-tab label="HSRA Upcoming" [disabled]="isUpcomingDisabled" *ngIf="selectedRole.name === 'Architect'">
+    <app-hsra-upcoming></app-hsra-upcoming>
+  </mat-tab>
+
+  <mat-tab label="Conformance List" *ngIf="selectedRole.name === 'Architect'">
+    <app-conformance-list></app-conformance-list>
+  </mat-tab>
+
+  <!-- <mat-tab label="Reusable Components" *ngIf="selectedRole.name === 'Architect'">
+    <app-demo-ui-screen></app-demo-ui-screen>
+  </mat-tab> -->
+
+</mat-tab-group>

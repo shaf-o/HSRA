@@ -1,0 +1,62 @@
+$auth-bg-gradient-start: #00a7d7;
+$auth-bg-gradient-end: #006c9b;
+$auth-card-gradient-start: #31daff;
+$auth-card-gradient-end: #538dff;
+$auth-name-title-text: #393c41;
+.auth-container {
+  background: #0d47a1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.auth-background {
+  background-image: url('../../../assets/img/hsra_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.auth-card {
+  width: 550px;
+}
+
+.auth-name {
+  &--title {
+    font-size: 26px;
+    color: $auth-name-title-text;
+    margin: 0;
+  }
+  &--version {
+    font-size: 14px;
+    color: $auth-name-title-text;
+    text-align: center;
+    margin: 5px auto;
+  }
+  h4 {
+    color: rgb(201, 24, 24);
+    text-align: center;
+   }
+  margin: 32px auto;
+}
+
+.auth-form {
+  mat-form-field,
+  .auth-link {
+    margin-bottom: 30px;
+  }
+  button {
+    height: 50px;
+  }
+}
+
+.auth-footer {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Centrale-sans';
+  font-size: 0.85em;
+  color: white;
+  bottom: 0;
+  position: absolute;
+}

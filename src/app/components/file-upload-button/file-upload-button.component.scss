@@ -1,0 +1,38 @@
+@import './../../../styles.scss';
+
+.file-upload-component {
+  text-align:left;
+  display: flex;
+}
+
+#file-upload {
+    position: absolute;
+    left: -9999px;
+}
+
+//Button inside the Label
+label[for="file-upload"]{
+    font-family: 'Centrale-Sans';
+    padding:0.5em;  
+    display:inline-block;
+    border-radius: 2px;    
+    padding-left: 15px;
+    padding-right: 15px;
+    background:$mat-blue;
+    color: $white;
+    cursor:pointer;
+    &:hover{
+        background:darken($mat-blue ,10%);
+    }
+}
+
+//Label design
+.filename{
+  font-family: 'Centrale-Sans';
+  padding:0.5em;
+  float:left;
+  flex-grow: 2;
+  white-space: nowrap;
+  overflow:hidden;
+  background-color:$mat-light-blue;
+}

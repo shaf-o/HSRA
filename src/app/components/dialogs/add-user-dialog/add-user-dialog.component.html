@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Add New User</h2>
+<mat-dialog-content>
+    <form>
+        <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+            <mat-form-field fxFlex="100%">
+                <input matInput placeholder="Enter User Email" [(ngModel)]="userObj.email" name="userEmail">
+            </mat-form-field>
+        </div>
+        <div fxLayout fxLayoutAlign="left" fxLayoutGap="10%">
+            <button mat-raised-button color="primary" (click)="searchUser(userObj)">Search User</button>
+            <!-- <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button> -->
+        </div>
+        <div *ngIf="isEnabled"  fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+            <!-- <mat-form-field fxFlex="45%">
+                <mat-select placeholder="Select User Role" name="process" [(ngModel)]="roleObj" (change)="selectedRole(roleObj)">
+                    <mat-option *ngFor="let role of roleList" [value]="role">
+                        {{ role.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <mat-form-field fxFlex="90%">
+                <mat-select placeholder="Select User Role" [formControl]="formControl" [(ngModel)]="roleObj" (change)="selectedRole(roleObj)" multiple>
+                  <mat-option *ngFor="let role of roleList" [value]="role">{{role.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <!-- <mat-form-field fxFlex="45%">
+                <input matInput placeholder="Enter Milestone Level" [(ngModel)]="milestoneObj.level" name="milestoneLevel">
+            </mat-form-field> -->
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="isEnabled" fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-raised-button color="primary" (click)="onCloseConfirm()">CONFIRM</button>
+    <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

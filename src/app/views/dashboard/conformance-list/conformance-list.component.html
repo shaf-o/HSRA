@@ -1,0 +1,21 @@
+<!-- Select BU, Project, Release -->
+  <app-hsra-project-details changeHandler=(projectDetailsChangeHandler(obj))></app-hsra-project-details>
+<!-- end:Select BU, Project, Release -->
+<mat-card>
+  <mat-card-content fxLayout>
+    <div class="example-container mat-elevation-z2" fxFlex="100%">
+      <div class="container" fxLayout fxLayoutAlign="center center">
+        <ag-grid-angular class="ag-theme-material custom-grid-class" fxFlex="100%"
+        [ngStyle]="configStyle()"
+        [gridOptions]="gridOptions"        
+        [pagination]="true"
+        [paginationAutoPageSize]="true"
+        [suppressMovableColumns]="true"
+        [enableFilter]="true"
+        [enableSorting]="true">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+    

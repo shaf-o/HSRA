@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>{{ heading }}</h2>
+<mat-dialog-content>
+  <div fxLayout fxLayoutAlign="left" fxLayoutGap="10%" class="group_box">
+    <mat-form-field *ngIf="!isGroupExist" fxFlex="70%">
+      <input matInput placeholder="Enter Checklist Group Name">
+    </mat-form-field>
+    <div *ngIf="!isGroupExist" fxLayout  fxLayoutAlign="right" fxLayoutGap="5%">
+        <button mat-raised-button color="primary" (click)="toggleGroupInput()">Add</button>
+      <button mat-raised-button color="warn" (click)="toggleGroupInput()">Cancel</button>
+    </div>
+
+    <mat-form-field *ngIf="isGroupExist" fxFlex="70%">
+      <mat-select placeholder="Select Checklist Group" name="group" [(ngModel)]="groupObj" (change)="selectedGroup(groupObj)" >
+        <mat-option *ngFor="let group of groupList" [value]="group">
+          {{ group.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="isGroupExist" fxLayout  fxLayoutAlign="right" fxLayoutGap="20%">
+      <button mat-raised-button color="primary" (click)="toggleGroupInput()">Add Checklist group</button>
+      <!-- <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button> -->
+    </div>
+
+  </div>
+  <!-- checklist name -->
+  <div fxLayout fxLayoutAlign="left" fxLayoutGap="10%">
+    <mat-form-field fxFlex="100%">
+      <input matInput placeholder="Enter Checklist Name" [(ngModel)]="checklistObj.name" name="checklistName" [formControl]="nameFormControl">
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Checklist Group Name
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- Second row -->
+  <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+    <mat-form-field fxFlex="100%">
+      <input matInput [formControl]="descriptionFormControl" placeholder="Requirement Description" [(ngModel)]="checklistObj.description"
+        name="checklistDescription">
+      <mat-error *ngIf="descriptionFormControl.hasError('required')">
+        Checklist Description
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- url -->
+  <div fxLayout fxLayoutAlign="left" fxLayoutGap="10%">
+    <mat-form-field fxFlex="100%">
+      <input matInput placeholder="Enter URL" [(ngModel)]="checklistObj.url" name="checklistUrl">
+    </mat-form-field>
+  </div>
+
+  <!-- file Upload button -->
+  <app-file-upload-button (onFileUpload)="onFileUploadEvent($event)"></app-file-upload-button>  
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button mat-raised-button [disabled]="!nameFormControl.valid || !descriptionFormControl.valid" color="primary" (click)="onCreateConfirm(checklistObj)">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

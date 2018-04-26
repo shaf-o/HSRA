@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content fxLayout>
+    <div class="example-container mat-elevation-z2" fxFlex="100%">
+      <div class="container" fxLayout fxLayoutAlign="center center">
+        <ag-grid-angular class="ag-theme-material custom-grid-class" fxFlex="100%"
+        [ngStyle]="configStyle()"
+        [gridOptions]="gridOptions"
+        [pagination]="true"
+        [paginationAutoPageSize]="true"
+        [suppressMovableColumns]="true"
+        [enableFilter]="true"
+        [enableSorting]="true">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-raised-button color="primary" (click)="onCreateConfirm()">CONFIRM</button>
+    <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+  </mat-dialog-actions>
+</mat-card>

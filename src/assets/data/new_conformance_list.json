@@ -1,0 +1,67 @@
+[{
+    "id": 1,
+    "name": "has formal interface documentation",
+    "group": "to communicate only through managed APIs",
+    "subgroup": "check that:",
+    "status": "P",
+    "link": "http://examiner.com/ipsum.json",
+    "project": "HSRA",
+    "release": "0.55",
+    "milestone": "milestone 01"
+  },
+  {
+    "id": 2,
+    "name": "complies with best practice rules and guidelines in the architecture repository",
+    "group": "to communicate only through managed APIs",
+    "subgroup": "Each provided strategic interface:",
+    "status": "I",
+    "link": "http://instagram.com/fusce/posuere/felis.js",
+    "project": "HSRA",
+    "release": "8.2.8",
+    "milestone": "milestone 02"
+  },
+  {
+    "id": 3,
+    "name": "complies with best practice rules and guidelines in the architecture repository",
+    "group": "and with a clear contract towards the underlying infrastructure",
+    "subgroup": "Each provided strategic interface:",
+    "status": "P",
+    "link": "http://weibo.com/odio/consequat/varius/integer/ac/leo/pellentesque.json",
+    "project": "HSRA",
+    "release": "0.2.3",
+    "milestone": "milestone 03"
+  },
+  {
+    "id": 4,
+    "name": "Context diagrams showing interfaces to other products/solutions defined",
+    "group": "offering maximum portability between execution environments",
+    "subgroup": "For each used strategic interface",
+    "status": "P",
+    "link": "https://home.pl/nullam/porttitor/lacus.jpg",
+    "project": "HSRA",
+    "release": "5.6",
+    "milestone": "milestone 04"
+  },
+  {
+    "id": 5,
+    "name": "has formal interface documentation",
+    "group": "and with a clear contract towards the underlying infrastructure",
+    "subgroup": "check that:",
+    "status": "I",
+    "link": "https://globo.com/in/porttitor/pede/justo/eu/massa.jpg",
+    "project": "HSRA",
+    "release": "0.70",
+    "milestone": "milestone 05"
+  },
+  {
+    "id": 6,
+    "name": "complies with best practice rules and guidelines in the architecture repository",
+    "group": "to communicate only through managed APIs",
+    "subgroup": "check that:",
+    "status": "O",
+    "link": "http://4shared.com/ut/erat/curabitur/gravida/nisi/at/nibh.aspx",
+    "project": "HSRA",
+    "release": "3.1",
+    "milestone": "milestone 06"
+  }
+]

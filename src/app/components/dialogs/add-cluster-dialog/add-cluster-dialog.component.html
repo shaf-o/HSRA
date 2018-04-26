@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Add New Cluster</h2>
+<mat-dialog-content>
+  <form>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Cluster Code">
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Cluster Name">
+      </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Platform Order">
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Description">
+      </mat-form-field>
+    </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button mat-raised-button color="primary" (click)="onCloseConfirm()">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

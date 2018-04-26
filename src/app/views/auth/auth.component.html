@@ -1,0 +1,48 @@
+<div class="auth-container" fxLayout="row" fxLayoutAlign="start stretch">
+  <div class="auth-background" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+    <div>
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoggingIn"></mat-progress-bar>
+      <mat-card class="auth-card">
+        <mat-card-content fxLayout="column" fxLayoutAlign="center stretch">
+          <div fxLayout="row" fxLayoutAlign="center center" class="auth-logo">
+            <img fxFlex="15%" src="assets/img/philips_logo_blue.png">
+          </div>
+          <div class="auth-name">
+            <p class="auth-name--title">
+              <strong>Philips </strong> Health Suite Reference Architecture</p>
+            <p class="auth-name--version">v{{ version }}</p>
+            <h4 *ngIf="isValidError">INVALID USERNAME / PASSWORD</h4>
+          </div>
+          <form fxLayoutAlign="center stretch" fxLayout="column" class="auth-form">
+            <!-- <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="100%">
+                <input matInput type="email" placeholder="Username" tabindex="1" autofocus required>
+              </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+              <mat-form-field fxFlex="100%">
+                <input matInput type="password" placeholder="Password" tabindex="2" required>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end" class="auth-link">
+              <button mat-button color="primary" tabindex="4">Forgot Password?</button>
+            </div> -->
+            <div fxLayout="row" fxLayoutAlign="center" class="auth-button">
+              <button mat-raised-button color="primary" fxFlex="80%" tabindex="3" (click)="login()">Click to Log In and Proceed</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="auth-footer">
+      <h2>
+        Terms and Conditions
+      </h2>
+      <p>
+        Copyrights and all other proprietary rights in any software and related documentation (“Software”) made available to you
+        rest exclusively with Philips or its licensors. No title or ownership in the Software is conferred to you. Use of
+        the Software is subject to the end user license conditions as are available on request.
+      </p>
+    </div>
+  </div>
+</div>

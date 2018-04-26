@@ -1,0 +1,20 @@
+@import './../../../../styles.scss';
+
+.custom-grid-class {
+    font-family: "Centrale-Sans";
+    font-size: 14px;
+}
+
+.custom-grid-class .ag-header-row {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    font-family: "Centrale-Sans";
+}
+
+.ag-row.ag-row-group.ag-full-width-row {
+    padding: 10px 10px;
+    font-style: italic;
+    background-color: rgb(217, 231, 252);
+    font-weight: bold;
+}

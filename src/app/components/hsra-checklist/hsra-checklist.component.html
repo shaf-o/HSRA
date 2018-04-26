@@ -1,0 +1,124 @@
+<mat-card>
+  <mat-card-content>
+
+    <mat-card>
+      <mat-card-content>
+
+        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+          <p fxFlex="20%">
+            <strong>Product/System/Service Name:</strong>
+          </p>
+          <mat-form-field fxFlex="20%">
+            <mat-select [(value)]='selectedProductValue'>
+              <mat-option value="DPS-PIUS">DPS-PIUS</mat-option>
+              <mat-option value="PlatForm Harmonization">PlatForm Harmonization</mat-option>
+              <mat-option value="Philips DLS">Philips DLS</mat-option>
+              <mat-option value="TeleHealth">TeleHealth</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p fxFlex="15%">
+            <strong>Process Type:</strong>
+          </p>
+          <p fxFlex="15%" class="detailText">
+            <strong>Native</strong>
+          </p>
+        </div>
+        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+          <p fxFlex="20%">
+            <strong>Organization:</strong>
+          </p>
+          <p fxFlex="20%" class="detailText">
+            <strong>BU1</strong>
+          </p>
+          <p fxFlex="15%">
+            <strong>Process</strong>
+          </p>
+          <p fxFlex="15%" class="detailText">
+            <strong>PDLM</strong>
+          </p>
+        </div>
+        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+          <p fxFlex="20%">
+            <strong>Release</strong>
+          </p>
+          <mat-form-field fxFlex="20%">
+            <mat-select [(value)]='selectedReleaseValue'>
+              <mat-option value="1">v1.0.0</mat-option>
+              <mat-option value="2">v2.6.0</mat-option>
+              <mat-option value="3">v3.0.0</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p fxFlex="15%">
+            <strong>Gate / Milestone</strong>
+          </p>
+          <mat-form-field fxFlex="15%">
+            <mat-select [(value)]='selectedGateValue'>
+              <mat-option value="CRA">RAD</mat-option>
+              <mat-option value="CPA">PI</mat-option>
+              <mat-option value="DP">SVER</mat-option>
+              <mat-option value="PDLM">POS</mat-option>
+              <mat-option value="CAI">PAS</mat-option>
+              <mat-option value="DP[AGL]">PSD</mat-option>
+              <mat-option value="DPI">PR</mat-option>
+              <mat-option value="PDLM[AGL]">VPA</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="example-container mat-elevation-z2">
+      <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="65%">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <button mat-raised-button fxFlex="20%" color="primary">Save All</button>
+      </div>
+      <mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="requirement">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Conformance Requirement </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.requirement}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="url">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput placeholder="Update URL"> </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="conformance">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Conformance </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-select placeholder="Select Conformance">
+              <mat-option value="FC">Fully Conformant</mat-option>
+              <mat-option value="PC">Partially Conformant</mat-option>
+              <mat-option value="NC">Non Conformant</mat-option>
+              <mat-option value="NA">Not Applicable</mat-option>
+            </mat-select>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="rationale">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Rationale </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <textarea matInput placeholder="Comments"></textarea>
+          </mat-cell>
+        </ng-container>
+        <!-- <ng-container matColumnDef="actionItem">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button>
+              <mat-icon class="example-icon">check</mat-icon> Save
+            </button>
+          </mat-cell>
+        </ng-container> -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #paginator [pageSize]="15" [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+    </div>
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>{{ heading }}</h2>
+<mat-dialog-content>
+  <form>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="45%">
+            <input matInput placeholder="Enter Project Code" [(ngModel)]="projectObj.code" name="projectCode" [formControl]="projectCodeFormControl" >
+            <mat-error *ngIf="projectCodeFormControl.hasError('required')">
+              Project Code <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex="45%">
+            <input matInput placeholder="Enter Project Name" [(ngModel)]="projectObj.name" name="projectName" [formControl]="projectNameFormControl">
+            <mat-error *ngIf="projectNameFormControl.hasError('required')">
+              Project Name <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+    </div>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+          <input matInput placeholder="Enter Project Project Manager" [(ngModel)]="projectObj.project_manager" name="projectProjectManager" [formControl]="projectProjectManagerFormControl" >
+          <mat-error *ngIf="projectProjectManagerFormControl.hasError('required')">
+            Project ProjectManager <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="45%">
+          <input matInput placeholder="Enter Project Architect" [(ngModel)]="projectObj.architect" name="projectArchitect" [formControl]="projectArchitectFormControl">
+          <mat-error *ngIf="projectArchitectFormControl.hasError('required')">
+            Project Architect <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+  </div>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="45%">
+            <mat-select placeholder="Select Process" name="process" [(ngModel)]="processObj" (change)="selectedProcess(processObj)">
+                <mat-option *ngFor="let process of processList" [value]="process" >
+                  {{ process.code }} - {{ process.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="45%">
+          <input matInput placeholder="Enter Project Description" [(ngModel)]="projectObj.description" name="projectDescription" >
+        </mat-form-field>
+
+    </div>
+  
+  <div fxLayout fxLayoutAlign="left center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Enter Project Current Version" [(ngModel)]="projectObj.currentProjectVersion" name="projectVersion" [formControl]="projectVersionFormControl" >
+        <mat-error *ngIf="projectVersionFormControl.hasError('required')">
+          Project Version <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button [disabled]="!projectCodeFormControl.valid || !projectNameFormControl.valid || !projectProjectManagerFormControl.valid || !projectArchitectFormControl.valid || !projectVersionFormControl.valid" mat-raised-button color="primary" (click)="onCreateConfirm(projectObj)">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

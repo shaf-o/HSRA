@@ -1,0 +1,41 @@
+@import './../../../../styles.scss';
+
+.dashboard-screen {
+    display:flex;  
+    // border: 1px solid red;
+    flex-direction: column;  
+    margin: 0 auto;
+    width: 80%;    
+    height:83vh;
+    mat-card {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;        
+        width: 97%;
+        mat-card-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 0;
+            border-bottom: 1px solid $color-grey;            
+            p {
+                span {
+                    color: $color-blue-highlight;
+                }
+                display: inline-block;
+                margin: 0;
+                padding: 10px;
+                small {
+                    font-size: 1rem;
+                }
+            }
+        }
+        mat-card-content {
+            display: flex;
+            flex-direction: column;
+            mat-form-field {
+                width: 50%;
+            }            
+        }
+    }
+}

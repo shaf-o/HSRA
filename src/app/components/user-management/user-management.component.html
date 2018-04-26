@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-content fxLayout>
+      <div class="example-container mat-elevation-z2" fxFlex="100%">
+        <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+          <mat-form-field fxFlex="65%">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <button mat-raised-button fxFlex="20%" color="primary" (click)="openDialog()">Add New User</button>
+        </div>
+        <mat-table #table [dataSource]="dataSource">
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="process">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> User Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.emailId}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="processtype">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> User Role </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.roleName}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-button color="primary" (click)="editUser(element)">Edit</button>
+              <button mat-button color="warn" (click)="deleteUser(element)">Delete</button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>

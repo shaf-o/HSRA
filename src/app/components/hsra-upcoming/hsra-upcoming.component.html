@@ -1,0 +1,89 @@
+<mat-card>
+    <mat-card-content>
+  
+      <mat-card>
+        <mat-card-content>
+  
+          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+            <p fxFlex="20%">
+              <strong>Product/System/Service Name:</strong>
+            </p>
+            <mat-form-field fxFlex="20%">
+              <mat-select [(value)]='selectedValue'>
+                <mat-option value="DPS-PIUS">DPS-PIUS</mat-option>
+                <mat-option value="PlatForm Harmonization">PlatForm Harmonization</mat-option>
+                <mat-option value="Philips DLS">Philips DLS</mat-option>
+                <mat-option value="TeleHealth">TeleHealth</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p fxFlex="15%">
+              <strong>Process Type:</strong>
+            </p>
+            <p fxFlex="15%" class="detailText">
+              <strong>Native</strong>
+            </p>
+          </div>
+          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+            <p fxFlex="20%">
+              <strong>Organization:</strong>
+            </p>
+            <p fxFlex="20%" class="detailText">
+              <strong>BU1</strong>
+            </p>
+            <p fxFlex="15%">
+              <strong>Process</strong>
+            </p>
+            <p fxFlex="15%" class="detailText">
+              <strong>PDLM</strong>
+            </p>
+          </div>
+          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+            <p fxFlex="20%">
+              <strong>Release</strong>
+            </p>
+            <p fxFlex="20%" class="detailText">
+              <strong>v3.0.0</strong>
+            </p>
+            <p fxFlex="15%">
+              <strong>Upcoming Gate / Milestone</strong>
+            </p>
+            <p fxFlex="15%" class="detailText">
+              <strong>RAD</strong>
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <div class="example-container mat-elevation-z2">
+          <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+            <mat-form-field fxFlex="85%">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+          <mat-table #table [dataSource]="dataSource">
+            <ng-container matColumnDef="position">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="requirement_text">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Conformance Requirement </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.requirement_text}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="url">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="document_link">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Document/Evidence Link </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.document_link}} </mat-cell>
+              </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+          </mat-paginator>
+        </div>
+  
+    </mat-card-content>
+  </mat-card>
+  

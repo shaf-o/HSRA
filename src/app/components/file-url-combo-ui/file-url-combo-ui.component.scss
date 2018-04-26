@@ -1,0 +1,14 @@
+@import './../../../styles.scss';
+
+button {
+  &[mat-mini-fab] {
+    box-shadow: none;
+    position: relative;
+    top:-6px;
+    width: 40px;
+    height: 40px;
+    mat-icon {
+      color: white;
+    }
+  }
+}

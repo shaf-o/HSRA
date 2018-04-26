@@ -1,0 +1,18 @@
+<div class="example-container mat-elevation-z2">
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="milestonename">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Milestone Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.milestonename}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="milestonelevel">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Level </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.milestonelevel}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

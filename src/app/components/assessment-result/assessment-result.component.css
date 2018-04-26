@@ -1,0 +1,33 @@
+.cdk-column-position.mat-column-position {
+    flex: 0 0 50px;
+}
+
+.cdk-column-requirement.mat-column-requirement {
+    flex: 0 0 50%;
+}
+
+.positive {
+    color: green;
+    font-weight: bold;
+}
+
+.inprogress {
+    color: orange;
+    font-weight: bold;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+}
+
+.detailText{
+    color: darkblue; 
+}
+
+/* .mat-cell, .mat-header-cell {
+    flex: 1;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+} */

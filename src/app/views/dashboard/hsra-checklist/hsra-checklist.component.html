@@ -1,0 +1,63 @@
+
+    <!-- Select BU, Project, Release -->
+    <a href="pramod.jpg"></a>
+  <app-hsra-project-details (changeHandler)="projectDetailsChangeHandler($event)"></app-hsra-project-details>
+  <!-- end:Select BU, Project, Release -->
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <mat-card>
+    <mat-card-content fxLayout>
+    <div class="example-container mat-elevation-z2" fxFlex="100%">
+      <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="65%">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <button mat-raised-button fxFlex="20%" color="primary">Save Updates</button>
+      </div>
+      <mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <mat-header-cell fxFlex="60px" *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+          <mat-cell fxFlex="60px" *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <mat-header-cell fxFlex="60%"*matHeaderCellDef mat-sort-header> Conformance Requirement </mat-header-cell>
+          <mat-cell fxFlex="60%" *matCellDef="let element"> {{element.description}} </mat-cell>
+        </ng-container>
+        <!-- <ng-container matColumnDef="url">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input matInput placeholder="Update URL"> </mat-cell>
+        </ng-container> -->
+        <ng-container matColumnDef="status">
+          <mat-header-cell fxFlex="20%" *matHeaderCellDef mat-sort-header> Conformance </mat-header-cell>
+          <mat-cell fxFlex="20%" *matCellDef="let element; let rowIndex = index;">
+            <mat-select *ngIf="element.status!=='Publish'" placeholder="Select Conformance">
+              <mat-option value="FC">Fully Conformant</mat-option>
+              <mat-option value="PC">Partially Conformant</mat-option>
+              <mat-option value="NC">Non Conformant</mat-option>
+              <mat-option value="NA">Not Applicable</mat-option>
+            </mat-select>
+            <app-file-url-combo [rowDetails]="element" *ngIf="element.status==='Publish'"></app-file-url-combo>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="rationale">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Rationale </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <textarea matInput placeholder="Comments"></textarea>
+          </mat-cell>
+        </ng-container>
+        <!-- <ng-container matColumnDef="actionItem">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button>
+              <mat-icon class="example-icon">check</mat-icon> Save
+            </button>
+          </mat-cell>
+        </ng-container> -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns; let rowIndex = index;"></mat-row>
+      </mat-table>
+      <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+    </div>
+    </mat-card-content>
+    </mat-card>

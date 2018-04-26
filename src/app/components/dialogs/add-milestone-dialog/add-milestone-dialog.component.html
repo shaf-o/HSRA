@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>{{ heading }}</h2>
+<mat-dialog-content>
+  <form>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="45%">
+            <input matInput placeholder="Enter Milestone Code" [(ngModel)]="milestoneObj.code" name="milestoneCode" [formControl]="milestoneCodeFormControl" >
+            <mat-error *ngIf="milestoneCodeFormControl.hasError('required')">
+              Milestone Code <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Enter Milestone Name" [(ngModel)]="milestoneObj.name" name="milestoneName" [formControl]="milestoneNameFormControl">
+        <mat-error *ngIf="milestoneNameFormControl.hasError('required')">
+          Milestone Name <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+        <mat-form-field fxFlex="45%">
+            <mat-select placeholder="Select Process" name="process" [(ngModel)]="processObj" (change)="selectedProcess(processObj)">
+                <mat-option *ngFor="let process of processList" [value]="process" >
+                  {{ process.code }} - {{ process.name }}
+                </mat-option>
+              </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="45%">
+          <input matInput placeholder="Enter Milestone Level" [(ngModel)]="milestoneObj.level" name="milestoneLevel" >
+        </mat-form-field>
+
+    </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button [disabled]="!milestoneCodeFormControl.valid || !milestoneNameFormControl.valid" mat-raised-button color="primary" (click)="onCreateConfirm(milestoneObj)">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

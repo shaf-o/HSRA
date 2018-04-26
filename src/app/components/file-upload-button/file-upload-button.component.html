@@ -1,0 +1,9 @@
+<div class="file-upload-component" #fileuploadRef id="fileuploadRef">
+    <span class="filename"></span>
+    <label for="file-upload">
+        <mat-icon>folder_open</mat-icon>        
+        <input type="file" id="file-upload" (change)="onFileSelected($event)">
+    </label>
+    <button mat-button color="primary" [disabled]="isUploadButtonDisabled" (click)="onFileSubmit()"><mat-icon>file_upload</mat-icon></button>
+    <button mat-button color="warn" [disabled]="isUploadButtonDisabled" (click)="onFileDelete()"><mat-icon>delete</mat-icon></button>
+</div>

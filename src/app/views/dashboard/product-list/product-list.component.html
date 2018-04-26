@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-content>
+
+    <form>
+      <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5%">
+          <p fxFlex="10%">
+            <strong>Organization Type:</strong>
+          </p>
+        <mat-form-field  fxFlex="15%">
+          <mat-select [(value)]='selectedValue'>
+            <mat-option value="Cluster" >Cluster</mat-option>
+            <mat-option value="BusinessGroup">Business Group</mat-option>
+            <mat-option value="BusinessUnit">Business Unit</mat-option>
+            <mat-option value="Product">Product</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <app-cluster-table *ngIf="selectedValue === 'Cluster'"></app-cluster-table>
+    <app-bu-table *ngIf="selectedValue === 'BusinessUnit'"></app-bu-table>
+    <app-bg-table *ngIf="selectedValue === 'BusinessGroup'"></app-bg-table>
+    <app-product-table *ngIf="selectedValue === 'Product'"></app-product-table>
+  </mat-card-content>
+</mat-card>

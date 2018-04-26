@@ -1,0 +1,51 @@
+<div class="dashboard-screen">
+    <!-- isLoaded -->
+<mat-progress-bar mode="indeterminate" *ngIf="isLoaded"></mat-progress-bar>
+<mat-card>
+    <mat-card-title>        
+        <p>Welcome <span>{{fullName}}</span></p>
+        <p><small>Project Track List</small></p>
+    </mat-card-title>
+    <mat-card-content>
+        <!-- Search Filter -->
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Projects">
+        </mat-form-field>      
+        <!-- Table -->
+        <mat-table #table [dataSource]="dataSource">
+                <ng-container matColumnDef="id">
+                    <mat-header-cell fxFlex="50px" *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+                    <mat-cell fxFlex="50px" *matCellDef="let element"> {{element.id}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell fxFlex="60%" *matHeaderCellDef mat-sort-header> Project Name </mat-header-cell>
+                    <mat-cell fxFlex="60%" *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="businessUnit">
+                    <mat-header-cell fxFlex="5%" *matHeaderCellDef mat-sort-header> Business Unit </mat-header-cell>
+                    <mat-cell fxFlex="5%" *matCellDef="let element"> {{element.businessUnit}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="release">
+                    <mat-header-cell fxFlex="5%"  *matHeaderCellDef mat-sort-header> Release Version </mat-header-cell>
+                    <mat-cell  fxFlex="5%"  *matCellDef="let element"> {{element.release}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                    <mat-header-cell fxFlex="10%" *matHeaderCellDef mat-sort-header> Project Status </mat-header-cell>
+                    <mat-cell fxFlex="10%" *matCellDef="let element"> {{element.status}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <mat-header-cell  *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+                    <mat-cell  *matCellDef="let element"> 
+                        <button mat-raised-button color="{{element.action === 'Start' ? 'accent' : element.action === 'Continue' ? 'primary' : 'accent' }}" [disabled]="element.action === 'Submit'" (click)="onActionButtonClick()">{{element.action}}</button>
+                        <button mat-raised-button color="warn" *ngIf="element.action !== 'Submit'" (click)="onActionButtonClick()">Submit</button>
+                    </mat-cell>
+                </ng-container>
+                    
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+              <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
+              </mat-paginator>
+    </mat-card-content>
+</mat-card>    
+</div>

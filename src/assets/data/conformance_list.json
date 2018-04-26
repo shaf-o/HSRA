@@ -1,0 +1,53 @@
+[
+    {
+        "id": 0,
+        "name": "ungrouped",
+        "created_by": 0,
+        "checklistConformanceMappingList": [
+            {
+                "milestone": {
+                    "id": 20,
+                    "level": 92,
+                    "process": null,
+                    "name": "check-mile-mapping12",
+                    "code": "check-mile-mapping-code12wqas",
+                    "createdBy": 0,
+                    "modifiedBy": 0
+                },
+                "checklist": {
+                    "id": 19,
+                    "name": "checklist31",
+                    "description": null,
+                    "url": "check-mile-mapping-url-3",
+                    "checklistGroup": null,
+                    "file": null,
+                    "filename": null,
+                    "template": null,
+                    "createdBy": 0,
+                    "modifiedBy": 0
+                },
+                "unit": {
+                    "id": 2,
+                    "name": "Output",
+                    "code": "O",
+                    "defaultUnit": false,
+                    "file_upload_required": false,
+                    "conformance_status_required": true
+                },
+                "filename": null,
+                "conformanceExtent": {
+                    "id": 0,
+                    "name": null,
+                    "code": null
+                },
+                "publishStatus": {
+                    "id": 0,
+                    "name": null,
+                    "code": null
+                },
+                "milestone_submitted": false,
+                "rationale": null
+            }
+        ]
+    }
+]

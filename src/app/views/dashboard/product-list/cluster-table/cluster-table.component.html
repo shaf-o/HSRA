@@ -1,0 +1,37 @@
+<div class="example-container mat-elevation-z2" fxFlex="70%">
+    <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="65%">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <button mat-raised-button fxFlex="20%" color="primary" (click)="openDialog()">Add New Cluster</button>
+    </div>
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="clustercode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Cluster Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.clustercode}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="clustername">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Cluster Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.clustername}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="{'positive': element.status === 'Active', 'negative': element.status === 'In-Active'}"> {{element.status}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button color="primary">Edit</button>
+            <button mat-button color="warn">Delete</button>
+          </mat-cell>
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>

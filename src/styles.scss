@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+@include mat-core();
+@import "themes/default-theme.scss";
+.default-theme {
+  @include angular-material-theme($anms-theme);
+  margin:0;
+  padding: 0;
+}
+
+@import "./scss/main.scss";
+
+@include mat-core($custom-typography);

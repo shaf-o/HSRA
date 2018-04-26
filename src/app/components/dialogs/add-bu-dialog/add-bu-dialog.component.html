@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Add New Business Unit</h2>
+<mat-dialog-content>
+  <form>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <mat-select placeholder="Select Business Group">
+          <mat-option value="PI">PI</mat-option>
+          <mat-option value="RAD">RAD</mat-option>
+          <mat-option value="PSD">PSD</mat-option>
+          <mat-option value="VPA">VPA</mat-option>
+          <mat-option value="PDC">PDC</mat-option>
+          <mat-option value="SVER">SVER</mat-option>
+          <mat-option value="SVAL">SVAL</mat-option>
+          <mat-option value="RFA">RFA</mat-option>
+          <mat-option value="PRD">PRD</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Business Unit Code">
+      </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Business Unit Name">
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Platform Order">
+      </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="10%">
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Description">
+      </mat-form-field>
+      <!-- <mat-form-field fxFlex="45%">
+          <mat-checkbox>Active</mat-checkbox>
+      </mat-form-field> -->
+    </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between">
+  <button mat-raised-button color="primary" (click)="onCloseConfirm()">CONFIRM</button>
+  <button mat-raised-button color="warn" (click)="onCloseCancel()">CANCEL</button>
+</mat-dialog-actions>

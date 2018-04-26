@@ -1,0 +1,32 @@
+
+$color-grey:rgba(248, 242, 242, 0.933);
+$color-blue-highlight:rgb(13, 71, 161);
+$color-red-highlight:rgb(161, 13, 75);
+$silver: rgb(186, 194, 199);
+$purple:rgb(155, 89, 182);
+$white: rgb(236, 240, 241);
+$black: rgb(44, 62, 80);
+
+//File upload variables
+$silver: rgb(189, 195, 199);
+$mat-blue: rgb(13, 71, 161);
+$mat-grey-blue: rgb(117, 135, 163);
+$mat-light-blue:rgb(236, 240, 241);
+
+$font-family: "Centrale-Sans";
+
+@mixin placeholder {
+  :-webkit-input-placeholder {
+    @content
+  }
+  :-moz-placeholder {
+    @content
+  }
+  ::-moz-placeholder {
+    @content
+  }
+  :-ms-input-placeholder {
+    @content
+  }
+}
+
