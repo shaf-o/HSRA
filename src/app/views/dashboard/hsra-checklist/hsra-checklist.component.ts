@@ -12,6 +12,7 @@ import { CheckListModel } from './hsra-checklist.model';
 })
 export class HsraChecklistComponent implements OnInit {
   private isLoading: boolean;
+  private Loadbutton: boolean;
   displayedColumns = ['id', 'description', 'status', 'rationale'];
   // dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   dataSource: MatTableDataSource<CheckListModel>;
@@ -42,6 +43,7 @@ export class HsraChecklistComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.isLoading = true;
+    this.Loadbutton = true;
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
@@ -50,6 +52,7 @@ export class HsraChecklistComponent implements OnInit {
 
   projectDetailsChangeHandler(inputObj: ProjectMilestone) {
     this.isLoading = true;
+    this.Loadbutton = true;
     console.log('HSRA Checklist Screen handler: ', inputObj);
     this.checklistService.getChecklistItemsUnderMilestone( inputObj.milestone.id, inputObj.prjVersion.id ).subscribe(res => {
       console.log('List of Checklist Items inside a Milestone: ', res);
@@ -66,5 +69,7 @@ export class HsraChecklistComponent implements OnInit {
      * Disable the loader INITIALLY for getting conformance checklist
      */
     this.isLoading = false;
+    this.Loadbutton = false;
   }
+ 
 }

@@ -8,10 +8,10 @@
     <mat-card-content fxLayout>
     <div class="example-container mat-elevation-z2" fxFlex="100%">
       <div class="container" fxLayout fxLayoutAlign="center center" fxLayoutGap="10%">
-        <mat-form-field fxFlex="65%">
+        <mat-form-field fxFlex="65%" >
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
-        <button mat-raised-button fxFlex="20%" color="primary">Save Updates</button>
+        <button mat-raised-button fxFlex="20%" color="primary" *ngIf="Loadbutton">Save Updates</button>
       </div>
       <mat-table #table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
